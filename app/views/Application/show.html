@@ -1,0 +1,21 @@
+#{extends 'main.html' /}
+#{set title:result.name + '-' + result.version /}
+
+<div class="result">
+    <h1 class="${result.passed ? 'passed' : 'failed'}">${result.name} <em>— ${result.version}</em></h1>
+</div>
+
+<a class="revLink" href="${result.revisionDetail}">
+	${result.revisionDetail}    
+</a>
+
+<ul>
+    <li class="passed log">
+        <a href="@{detail(result.uid, 'application.log')}">application.log</a>
+    </li>
+    #{list result.tests(), as:'test'}
+        <li class="${test.endsWith('.passed.html') ? 'passed' : 'failed'}">
+            <a href="@{detail(result.uid, test)}">${test.replaceAll(/.(passed|failed).html/, '')}</a>
+        </li>
+    #{/list} 
+</ul>

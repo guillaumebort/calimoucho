@@ -1,0 +1,16 @@
+#{extends 'main.html' /}
+#{set title:'Latest test results' /}
+
+#{ifnot results}
+    <p>
+        No results
+    </p>
+#{/ifnot}
+
+#{list results, as:'result'}
+    <div class="result">
+        <a href="@{show(result.uid)}" id="${result.uid}" class="${result.passed ? 'passed' : 'failed'}">
+            ${result.name} <em>${result.version}</em>
+        </a>
+    </div>
+#{/list}

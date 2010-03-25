@@ -1,0 +1,14 @@
+# Projects
+
+models.Project(test1.0):
+  name:                   Yabe 1.0
+  path:                   /Users/guillaume/Desktop/play/1.0/samples-and-tests/yabe
+  framework:              /Users/guillaume/Desktop/play/1.0
+  updateCommand:          bzr update 
+  versionCommand:         bzr revno %path
+  versionPattern:         1.0r%version
+  revisionDetailPattern:  http://bazaar.launchpad.net/~play-developers/play/1.0/revision/%version
+  notifications:
+                          - guillaume.bort@gmail.com
+
+
